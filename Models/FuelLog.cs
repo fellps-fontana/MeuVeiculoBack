@@ -1,20 +1,13 @@
-﻿namespace MeuVeiculo.Models;
+﻿using System;
+
+namespace MeuVeiculo.Models;
 
 public class FuelLog
 {
-    public Guid Id { get; set; }
-    public Vehicle Vehicle { get; set; }
-    public DateTime Date { get; set; }
-    public int Liters { get; set; }
-    public decimal TotalCost {get; set;}
-    public Decimal PricePerLiter {get; set;}
-    public decimal Odometer {get; set;}
-    public string Station {get; set;}
-    public Boolean FullTank {get; set;}
-    public FuelLog(Vehicle vehicle, DateTime date, int liters, decimal totalCost, decimal pricePerLiter, int odometer, string station, Boolean fullTank)
+    public FuelLog(Guid vehicleId, DateTime date, decimal liters, decimal totalCost, decimal pricePerLiter, int odometer, string station, bool fullTank)
     {
         Id = Guid.NewGuid();
-        Vehicle = vehicle;
+        VehicleId = vehicleId;
         Date = date;
         Liters = liters;
         TotalCost = totalCost;
@@ -23,6 +16,15 @@ public class FuelLog
         Station = station;
         FullTank = fullTank;
     }
-    
 
+    public Guid Id { get; set; }
+    public Guid VehicleId { get; set; }
+    public Vehicle Vehicle { get; set; } = null!;
+    public DateTime Date { get; set; }
+    public decimal Liters { get; set; }
+    public decimal TotalCost { get; set; }
+    public decimal PricePerLiter { get; set; }
+    public int Odometer { get; set; }
+    public string Station { get; set; } = string.Empty;
+    public bool FullTank { get; set; }
 }
