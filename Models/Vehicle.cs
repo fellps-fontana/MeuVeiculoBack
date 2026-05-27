@@ -17,7 +17,7 @@ public class Vehicle
         Fuel = fuel;
         UserId = userId;
         FuelLogs = new List<FuelLog>();
-        MaintenanceLogs = new List<MaintenaceLog>();
+        MaintenanceLogs = new List<MaintenanceLog>();
     }
 
     public Guid Id { get; set; }
@@ -30,5 +30,5 @@ public class Vehicle
     public Guid UserId { get; set; }
     public User User { get; set; } = null!;
     public ICollection<FuelLog> FuelLogs { get; set; }
-    public ICollection<MaintenaceLog> MaintenanceLogs { get; set; }
+    public ICollection<MaintenanceLog> MaintenanceLogs { get; set; }
 }

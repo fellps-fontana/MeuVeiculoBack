@@ -10,7 +10,7 @@ public class AppDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Vehicle> Vehicles { get; set; }
     public DbSet<FuelLog> FuelLogs { get; set; }
-    public DbSet<MaintenaceLog> MaintenanceLogs { get; set; }
+    public DbSet<MaintenanceLog> MaintenanceLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -44,7 +44,7 @@ public class AppDbContext : DbContext
                 .OnDelete(DeleteBehavior.Cascade);
         });
 
-        modelBuilder.Entity<MaintenaceLog>(e =>
+        modelBuilder.Entity<MaintenanceLog>(e =>
         {
             e.Property(m => m.Category).HasConversion<string>();
             e.Property(m => m.Price).HasColumnType("decimal(10,2)");

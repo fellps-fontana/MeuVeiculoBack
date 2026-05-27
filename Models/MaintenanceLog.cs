@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using MeuVeiculo.Enums;
 
 namespace MeuVeiculo.Models;
 
-public class MaintenaceLog
+public class MaintenanceLog
 {
     public Guid Id { get; set; }
     public DateTime Date { get; set; }
@@ -13,7 +13,6 @@ public class MaintenaceLog
     public string Description { get; set; } = string.Empty;
     public decimal Price { get; set; }
     public string Mechanic { get; set; } = string.Empty;
-    public DateTime NextDueDat {get; set;}
-    public int? NextDueOdometer {get; set;}
-    
+    public DateTime NextDueDate { get; set; }
+    public int? NextDueOdometer { get; set; }
 }
