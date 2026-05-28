@@ -22,10 +22,10 @@ public class UserRepository(AppDbContext context) : IUserRepository
         return user;
     }
 
-    public Task DeleteUserAsync(User user)
+    public async Task DeleteUserAsync(User user)
     {
         context.Users.Remove(user);
-        return context.SaveChangesAsync();
+        await context.SaveChangesAsync();
     }
     
     public async Task<User?> GetUserByUsernameAsync(string username) =>

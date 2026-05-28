@@ -37,9 +37,9 @@ public class VehicleRepository(AppDbContext context) : IVehicleRepository
         return vehicle;
     }
 
-    public Task DeleteAsync(Vehicle vehicle)
+    public async Task DeleteAsync(Vehicle vehicle)
     {
         context.Vehicles.Remove(vehicle);
-        return context.SaveChangesAsync();
+        await context.SaveChangesAsync();
     }
 }
